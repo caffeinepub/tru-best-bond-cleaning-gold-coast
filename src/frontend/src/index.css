@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans-Variable.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    /* Teal primary palette */
+    --teal-50: 0.97 0.01 195;
+    --teal-100: 0.94 0.03 195;
+    --teal-500: 0.6 0.12 195;
+    --teal-600: 0.52 0.13 195;
+    --teal-700: 0.44 0.12 195;
+    --teal-800: 0.36 0.1 195;
+
+    /* Gold accent palette */
+    --gold-50: 0.98 0.02 80;
+    --gold-100: 0.95 0.05 80;
+    --gold-400: 0.8 0.15 75;
+    --gold-500: 0.72 0.17 72;
+    --gold-600: 0.62 0.17 70;
+
+    /* shadcn tokens */
+    --background: 0.99 0 0;
+    --foreground: 0.18 0.04 260;
+    --card: 0.99 0 0;
+    --card-foreground: 0.18 0.04 260;
+    --popover: 0.99 0 0;
+    --popover-foreground: 0.18 0.04 260;
+    --primary: 0.52 0.13 195;
+    --primary-foreground: 0.99 0 0;
+    --secondary: 0.94 0.03 195;
+    --secondary-foreground: 0.36 0.1 195;
+    --muted: 0.95 0.01 220;
+    --muted-foreground: 0.5 0.04 220;
+    --accent: 0.72 0.17 72;
+    --accent-foreground: 0.99 0 0;
+    --destructive: 0.58 0.22 25;
+    --destructive-foreground: 0.99 0 0;
+    --border: 0.9 0.02 220;
+    --input: 0.9 0.02 220;
+    --ring: 0.52 0.13 195;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+  .gradient-teal-gold {
+    background: linear-gradient(
+      135deg,
+      oklch(0.52 0.13 195),
+      oklch(0.72 0.17 72)
+    );
+  }
+  .text-gradient {
+    background: linear-gradient(
+      135deg,
+      oklch(0.52 0.13 195),
+      oklch(0.72 0.17 72)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  .container-lg {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Sticky WhatsApp button */
+.whatsapp-sticky {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+}
+
+/* Nav scroll effects */
+.nav-scrolled {
+  @apply shadow-md bg-white/95 backdrop-blur-sm;
+}
