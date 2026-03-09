@@ -1,5 +1,6 @@
 import { Toaster } from "@/components/ui/sonner";
 import { useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import AboutSection from "./components/AboutSection";
 import ContactSection from "./components/ContactSection";
 import FAQSection from "./components/FAQSection";
@@ -8,10 +9,12 @@ import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
 import ServiceDetails from "./components/ServiceDetails";
 import ServicesSection from "./components/ServicesSection";
+import SuburbPage from "./components/SuburbPage";
+import SuburbsSection from "./components/SuburbsSection";
 import TestimonialsSection from "./components/TestimonialsSection";
 import WhatsAppSticky from "./components/WhatsAppSticky";
 
-export default function App() {
+function HomePage() {
   const [navScrolled, setNavScrolled] = useState(false);
 
   useEffect(() => {
@@ -31,6 +34,7 @@ export default function App() {
           <ServicesSection />
           <ServiceDetails />
         </section>
+        <SuburbsSection />
         <section id="about">
           <AboutSection />
         </section>
@@ -46,5 +50,14 @@ export default function App() {
       <WhatsAppSticky />
       <Toaster />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/bond-cleaning-:slug" element={<SuburbPage />} />
+    </Routes>
   );
 }
